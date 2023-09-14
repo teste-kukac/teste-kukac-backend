@@ -71,7 +71,7 @@ describe('POST /desafio3', () => {
 
 describe('GET /desafio4/:cep', () => {
   it('deve retornar os dados do CEP existente', async () => {
-    const response = await request(app).get('/desafio4/12345678'); // Suponha um CEP existente
+    const response = await request(app).get('/desafio4/12247530'); 
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('logradouro');
     expect(response.body).toHaveProperty('bairro');
@@ -79,7 +79,7 @@ describe('GET /desafio4/:cep', () => {
   });
 
   it('deve retornar um erro para um CEP inexistente', async () => {
-    const response = await request(app).get('/desafio4/99999999'); // Suponha um CEP inexistente
+    const response = await request(app).get('/desafio4/99999999'); 
     expect(response.status).toBe(404);
     expect(response.body.error).toBe('CEP não encontrado');
   });

@@ -34,7 +34,6 @@ app.get('/desafio1/:number', (req, res) => {
 
 const notas = [100, 10, 1];
 
-
 app.post('/desafio2', (req, res) => {
   const { valorCompra, pagamento } = req.body;
 
@@ -42,29 +41,34 @@ app.post('/desafio2', (req, res) => {
     return res.status(400).json({ error: 'Forneça o valor da compra e o pagamento.' });
   }
 
-  let troco = pagamento - valorCompra;
+  const troco = pagamento - valorCompra;
+
+  if (troco < 0) {
+    return res.status(400).json({ error: 'O valor do pagamento é insuficiente.' });
+  }
+
   const quantidadeNotas = {};
 
-  const notas = [100, 10, 1];
+  let trocoRestante = troco;
 
-  for (let nota of notas) {
-    aux_troco = troco
-    const quantidade = Math.floor(aux_troco / nota);
-    if (quantidade > 0) {
+  notas.forEach((nota) => {
+    if (trocoRestante >= nota) {
+      const quantidade = Math.floor(trocoRestante / nota);
       quantidadeNotas[nota] = quantidade;
-      aux_troco -= quantidade * nota;
+      trocoRestante -= quantidade * nota;
     }
-  }
+  });
 
   res.json({
     valorCompra,
     pagamento,
     troco,
-    aux_troco,
     quantidadeNotas,
     numeroTotalNotas: Object.values(quantidadeNotas).reduce((acc, cur) => acc + cur, 0),
   });
 });
+
+
 
 
 app.post('/desafio3', (req, res) => {
