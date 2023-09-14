@@ -1,6 +1,6 @@
 <h1  >Backend do TESTE KUKAC - VAGA DE DESENVOLVEDOR FULL STACK</h1>
  <hr>
-<p align="left">O projeto se baseia em uma API Rest que fornece os métodos (GET,POST) para resolução de desafioa. O front-end que consome esta api se encontra no seguinte repositório: https://github.com/4l1son/teste-kukac-front </p>
+<p align="left">O projeto se baseia em uma API Rest que fornece os métodos (GET,POST) para resolução de desafioa. O front-end que consome esta api se encontra no seguinte repositório: https://github.com/teste-kukac/teste-kukac-frontend/ </p>
 
 <h2>Tecnologias utilizadas</h2>
 <div style="display: inline_block">
