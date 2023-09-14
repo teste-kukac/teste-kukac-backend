@@ -1,0 +1,34 @@
+export interface Veiculo {
+  Modelo: string;
+  anoFabricacao: number;
+  qtdPortas?: number;
+  Marcas: string;
+}
+
+export class Carro implements Veiculo {
+  Modelo: string;
+  anoFabricacao: number;
+  qtdPortas: number = 4; // Define o número padrão de portas para carros
+  Marcas: string;
+
+  constructor(Modelo: string, anoFabricacao: number, Marcas: string) {
+    this.Modelo = Modelo;
+    this.anoFabricacao = anoFabricacao;
+    this.Marcas = Marcas;
+  }
+}
+
+export class Moto implements Veiculo {
+  Modelo: string;
+  anoFabricacao: number;
+  qtdPortas: number = 0; // As motos geralmente não têm portas, então definimos como 0
+  Marcas: string;
+  Passageiros: number; // Adiciona a propriedade Passageiros
+
+  constructor(Modelo: string, anoFabricacao: number, Marcas: string, Passageiros: number) {
+    this.Modelo = Modelo;
+    this.anoFabricacao = anoFabricacao;
+    this.Marcas = Marcas;
+    this.Passageiros = Passageiros;
+  }
+}
