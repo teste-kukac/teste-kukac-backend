@@ -94,7 +94,6 @@ app.post('/desafio3', (req, res) => {
 app.get('/desafio4/:cep', async (req, res) => {
   try {
     const { cep } = req.params;
-    // Check if the CEP matches the Brazilian format
     const cepRegex = /^[0-9]{5}-?[0-9]{3}$/;
     
     if (!cepRegex.test(cep)) {
@@ -106,7 +105,6 @@ app.get('/desafio4/:cep', async (req, res) => {
     if (response.status === 200) {
       const data = response.data;
       if (data.erro) {
-        // Check if the API response indicates an error
         return res.status(404).json({ error: 'CEP não encontrado' });
       } else {
         return res.json(data);
